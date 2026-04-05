@@ -1,6 +1,10 @@
-# React + TypeScript + Vite
+# Medeas-Garden
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Coming-soon landing page for Medea’s Garden, built with React, TypeScript, and Vite.
+
+---
+
+This project started from the Vite React + TypeScript template. Original template notes:
 
 Currently, two official plugins are available:
 
