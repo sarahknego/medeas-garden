@@ -274,6 +274,10 @@
   --tarot-w: min(200px, 40vw);
 }
 
+.garden-spread-cards[data-count='1'] .tarot-card-inner {
+  --tarot-w: min(220px, 72vw);
+}
+
 .garden-spread-cards[data-count='5'] .tarot-card-inner {
   --tarot-w: min(148px, 29vw);
 }
@@ -351,6 +355,34 @@
   .garden-sub:last-of-type {
     margin-bottom: 1.125rem;
   }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-inner {
+    --tarot-w: min(256px, 85vw);
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-roman {
+    font-size: 1.45rem;
+    letter-spacing: 0.15em;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-name {
+    font-size: 1.72rem;
+    line-height: 1.18;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-keywords {
+    font-size: 1.06rem;
+    line-height: 1.38;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-top {
+    padding: 0.62rem 0.82rem 0.48rem;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-main {
+    padding: 0.62rem 0.92rem 1rem;
+    gap: 0.52rem;
+  }
 }
 
 /* Mobile only: ≤ 480px */
@@ -375,5 +407,66 @@
 
   .garden-sub:last-of-type {
     margin-bottom: 1rem;
+  }
+}
+
+/* One-card spread: larger card copy on mobile (single card has more room) */
+@media (max-width: 640px) {
+  .garden-spread-cards[data-count='1'] .tarot-card-inner {
+    --tarot-w: min(244px, 88vw);
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-roman {
+    font-size: 1.34rem;
+    letter-spacing: 0.14em;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-name {
+    font-size: 1.58rem;
+    line-height: 1.19;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-keywords {
+    font-size: 1rem;
+    line-height: 1.36;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-top {
+    padding: 0.58rem 0.78rem 0.46rem;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-main {
+    padding: 0.58rem 0.88rem 0.92rem;
+    gap: 0.48rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .garden-spread-cards[data-count='1'] .tarot-card-inner {
+    --tarot-w: min(228px, 92vw);
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-roman {
+    font-size: 1.18rem;
+    letter-spacing: 0.12em;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-name {
+    font-size: 1.38rem;
+    line-height: 1.17;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-keywords {
+    font-size: 0.94rem;
+    line-height: 1.34;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-top {
+    padding: 0.52rem 0.68rem 0.42rem;
+  }
+
+  .garden-spread-cards[data-count='1'] .tarot-card-front-main {
+    padding: 0.5rem 0.78rem 0.8rem;
+    gap: 0.4rem;
   }
 }

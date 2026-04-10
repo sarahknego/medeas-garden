@@ -1,7 +1,7 @@
 import { useId, useState } from 'react'
 import './TarotCard.css'
 
-export const DEFAULT_TAROT_BACK_SRC = '/images/tarot/tarot%20card%20back.jpg'
+export const DEFAULT_TAROT_BACK_SRC = '/images/tarot/tarot-card-back.jpg'
 
 export type TarotCardProps = {
   /** Major Arcana: `0` (Fool) or Roman numerals `I` … `XXI`. Omit when using {@link rankLabel}. */
