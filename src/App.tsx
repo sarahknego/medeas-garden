@@ -1,12 +1,16 @@
 import './App.css'
 import type { CSSProperties } from 'react'
+import { useState } from 'react'
 import { TarotCard } from './components/TarotCard'
-import { PREVIEW_CARD } from './data/previewCard'
+import { drawUniqueCards } from './data/fullDeck'
+import type { PreviewCard } from './data/previewCard'
 
 const LEAF_COLOR = '#5f704c'
 const LEAF_COUNT = 52
 const SPARKLE_COLOR = '#d5cfe7'
 const SPARKLE_COUNT = 68
+
+type SpreadSize = 1 | 3 | 5
 
 function FloatingSparkles() {
   return (
@@ -91,6 +95,19 @@ function FallingLeaves() {
 }
 
 function App() {
+  const [spreadSize, setSpreadSize] = useState<SpreadSize | null>(null)
+  const [drawnCards, setDrawnCards] = useState<PreviewCard[]>([])
+
+  function chooseSpread(size: SpreadSize) {
+    setSpreadSize(size)
+    setDrawnCards(drawUniqueCards(size))
+  }
+
+  function clearSpread() {
+    setSpreadSize(null)
+    setDrawnCards([])
+  }
+
   return (
     <main className="garden-page">
       <FloatingSparkles />
@@ -101,7 +118,62 @@ function App() {
         <p className="garden-sub">
           Step into the garden and receive your fortune...
         </p>
-        <TarotCard {...PREVIEW_CARD} />
+
+        {spreadSize === null ? (
+          <div className="garden-spread-picker">
+            <p className="garden-spread-prompt" id="spread-label">
+              Ask your question:
+            </p>
+            <div
+              className="garden-spread-buttons"
+              role="group"
+              aria-labelledby="spread-label"
+            >
+              <button
+                type="button"
+                className="garden-spread-option"
+                onClick={() => chooseSpread(1)}
+              >
+                One Card
+              </button>
+              <button
+                type="button"
+                className="garden-spread-option"
+                onClick={() => chooseSpread(3)}
+              >
+                Three Cards
+              </button>
+              <button
+                type="button"
+                className="garden-spread-option"
+                onClick={() => chooseSpread(5)}
+              >
+                Five Cards
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div
+              className="garden-spread-cards"
+              data-count={String(spreadSize)}
+            >
+              {drawnCards.map((card, index) => (
+                <TarotCard
+                  key={`${card.name}-${index}`}
+                  {...card}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="garden-spread-change"
+              onClick={clearSpread}
+            >
+              Choose a different spread
+            </button>
+          </>
+        )}
       </div>
     </main>
   )

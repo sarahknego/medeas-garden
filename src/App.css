@@ -1,3 +1,5 @@
+/* Responsive tiers: see breakpoints.css (--bp-mobile-xs-max, --bp-mobile-sm-max, --bp-tablet-max). */
+
 #root {
   max-width: none;
   width: 100%;
@@ -7,20 +9,23 @@
 }
 
 .garden-page {
+  --garden-page-bg: #2b253d;
   position: relative;
   box-sizing: border-box;
   min-height: 100vh;
   width: 100%;
   margin: 0;
   padding: 2rem 1.5rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #2b253d;
+  background-color: var(--garden-page-bg);
   font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .garden-sparkles {
@@ -177,6 +182,148 @@
   margin-bottom: 1.25rem;
 }
 
+.garden-spread-picker {
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.garden-spread-prompt {
+  margin: 0 0 1rem;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #f7ebec;
+}
+
+.garden-spread-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.garden-spread-option {
+  --spread-chamfer: 10px;
+  --spread-border: rgba(172, 159, 187, 0.45);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  color: #f7ebec;
+  background: rgba(22, 19, 31, 0.42);
+  border: none;
+  border-radius: 0;
+  clip-path: polygon(
+    var(--spread-chamfer) 0%,
+    calc(100% - var(--spread-chamfer)) 0%,
+    100% var(--spread-chamfer),
+    100% calc(100% - var(--spread-chamfer)),
+    calc(100% - var(--spread-chamfer)) 100%,
+    var(--spread-chamfer) 100%,
+    0% calc(100% - var(--spread-chamfer)),
+    0% var(--spread-chamfer)
+  );
+  filter: drop-shadow(0 1px 0 var(--spread-border))
+    drop-shadow(0 -1px 0 var(--spread-border))
+    drop-shadow(1px 0 0 var(--spread-border))
+    drop-shadow(-1px 0 0 var(--spread-border))
+    drop-shadow(1px 1px 0 var(--spread-border))
+    drop-shadow(-1px 1px 0 var(--spread-border))
+    drop-shadow(1px -1px 0 var(--spread-border))
+    drop-shadow(-1px -1px 0 var(--spread-border));
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    filter 0.2s ease;
+}
+
+.garden-spread-option:hover {
+  --spread-border: rgba(172, 159, 187, 0.75);
+  background: rgba(22, 19, 31, 0.55);
+  color: #fff;
+}
+
+.garden-spread-option:focus-visible {
+  outline: 2px solid #ac9fbb;
+  outline-offset: 3px;
+}
+
+.garden-spread-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem 1.15rem;
+  width: 100%;
+  max-width: min(56rem, 100%);
+  margin-bottom: 1.35rem;
+}
+
+.garden-spread-cards .tarot-card-inner {
+  --tarot-w: min(200px, 40vw);
+}
+
+.garden-spread-cards[data-count='5'] .tarot-card-inner {
+  --tarot-w: min(148px, 29vw);
+}
+
+.garden-spread-cards[data-count='3'] .tarot-card-inner {
+  --tarot-w: min(180px, 28vw);
+}
+
+.garden-spread-change {
+  --spread-chamfer: 8px;
+  --spread-border: rgba(43, 37, 61, 0.35);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--garden-page-bg);
+  background: #ac9fbb;
+  box-sizing: border-box;
+  border: 1px solid var(--spread-border);
+  border-radius: 0;
+  clip-path: polygon(
+    var(--spread-chamfer) 0%,
+    calc(100% - var(--spread-chamfer)) 0%,
+    100% var(--spread-chamfer),
+    100% calc(100% - var(--spread-chamfer)),
+    calc(100% - var(--spread-chamfer)) 100%,
+    var(--spread-chamfer) 100%,
+    0% calc(100% - var(--spread-chamfer)),
+    0% var(--spread-chamfer)
+  );
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.garden-spread-change:hover {
+  --spread-border: rgba(43, 37, 61, 0.45);
+  color: var(--garden-page-bg);
+  background: #d5cfe7;
+}
+
+.garden-spread-change:focus-visible {
+  outline: 2px solid #ac9fbb;
+  outline-offset: 4px;
+}
+
+/* Tablet + mobile: ≤ 768px */
 @media (max-width: 768px) {
   .garden-page {
     padding: 1.75rem 1.25rem;
@@ -206,12 +353,14 @@
   }
 }
 
+/* Mobile only: ≤ 480px */
 @media (max-width: 480px) {
   .garden-page {
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
-    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
 
   .garden-title {
