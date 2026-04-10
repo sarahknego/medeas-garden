@@ -1,3 +1,4 @@
+/* No filter on this wrapper: filter flattens 3D and breaks card flip / backface-visibility. */
 .tarot-card-wrap {
   display: flex;
   justify-content: center;
@@ -42,6 +43,7 @@
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
   border-radius: 10px;
+  /* Shadow on inner (not filter on parent): filter breaks preserve-3d / flip. */
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.35),
     0 2px 8px rgba(0, 0, 0, 0.2);
@@ -153,5 +155,64 @@
 @media (prefers-reduced-motion: reduce) {
   .tarot-card-inner {
     transition-duration: 0.01ms;
+  }
+}
+
+/* Large / regular phones: ≤640px — moderate card scaling */
+@media (max-width: 640px) {
+  .tarot-card-wrap {
+    margin-top: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .tarot-card-front-top {
+    padding: 0.45rem 0.65rem 0.4rem;
+  }
+
+  .tarot-card-front-main {
+    padding: 0.5rem 0.75rem 0.7rem;
+    gap: 0.4rem;
+  }
+
+  .tarot-card-roman {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .tarot-card-name {
+    font-size: 1.1rem;
+    line-height: 1.18;
+  }
+
+  .tarot-card-keywords {
+    font-size: 0.72rem;
+    line-height: 1.32;
+  }
+}
+
+/* Smallest phones only: ≤480px — extra-compact type & padding */
+@media (max-width: 480px) {
+  .tarot-card-front-top {
+    padding: 0.4rem 0.55rem 0.35rem;
+  }
+
+  .tarot-card-front-main {
+    padding: 0.4rem 0.55rem 0.55rem;
+    gap: 0.28rem;
+  }
+
+  .tarot-card-roman {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+
+  .tarot-card-name {
+    font-size: 0.88rem;
+    line-height: 1.15;
+  }
+
+  .tarot-card-keywords {
+    font-size: 0.68rem;
+    line-height: 1.3;
   }
 }

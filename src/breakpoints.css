@@ -1,0 +1,20 @@
+/**
+ * Layout breakpoints
+ *
+ * Use the literal pixel values in @media queries — custom properties cannot be
+ * used inside @media in all browsers. Keep numbers in sync with :root.
+ *
+ * - Desktop:     width ≥ 769px
+ * - Tablet:      641px – 768px (and wider tablets in portrait)
+ * - Mobile L:    481px – 640px (large / regular phones)
+ * - Mobile XS:   ≤ 480px (small phones — tightest card typography, etc.)
+ */
+
+:root {
+  --bp-mobile-xs-max: 480px;
+  --bp-mobile-sm-max: 640px;
+  --bp-tablet-max: 768px;
+  --bp-desktop-min: 769px;
+  /* Legacy alias */
+  --bp-mobile-max: 480px;
+}
