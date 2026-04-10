@@ -1,0 +1,5 @@
+export type { MinorArcanaCard } from './wands'
+export { WANDS } from './wands'
+export { CUPS } from './cups'
+export { SWORDS } from './swords'
+export { PENTACLES } from './pentacles'

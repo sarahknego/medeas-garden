@@ -177,33 +177,6 @@
   margin-bottom: 1.25rem;
 }
 
-.garden-instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 18px;
-  font-weight: 400;
-  font-family: inherit;
-  color: #ac9fbb;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-.garden-instagram:hover {
-  color: #d5cfe7;
-}
-
-.garden-instagram:focus-visible {
-  outline: 2px solid #ac9fbb;
-  outline-offset: 4px;
-}
-
-.garden-instagram-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
 @media (max-width: 768px) {
   .garden-page {
     padding: 1.75rem 1.25rem;
@@ -231,17 +204,6 @@
   .garden-sub:last-of-type {
     margin-bottom: 1.125rem;
   }
-
-  .garden-instagram {
-    font-size: 17px;
-    min-height: 44px;
-    padding: 0.3rem 0.5rem;
-  }
-
-  .garden-instagram-icon {
-    width: 21px;
-    height: 21px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -264,16 +226,5 @@
 
   .garden-sub:last-of-type {
     margin-bottom: 1rem;
-  }
-
-  .garden-instagram {
-    font-size: 16px;
-    padding: 0.35rem 0.5rem;
-    margin: 0 -0.5rem;
-  }
-
-  .garden-instagram-icon {
-    width: 20px;
-    height: 20px;
   }
 }
