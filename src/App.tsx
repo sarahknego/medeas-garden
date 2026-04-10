@@ -1,5 +1,7 @@
 import './App.css'
 import type { CSSProperties } from 'react'
+import { TarotCard } from './components/TarotCard'
+import { PREVIEW_CARD } from './data/previewCard'
 
 const LEAF_COLOR = '#5f704c'
 const LEAF_COUNT = 52
@@ -96,8 +98,10 @@ function App() {
       <div className="garden-text-vignette" aria-hidden />
       <div className="garden-content">
         <h1 className="garden-title">Medea's Garden</h1>
-        <p className="garden-sub">Something stirs in the garden...</p>
-        <p className="garden-sub">Coming soon!</p>
+        <p className="garden-sub">
+          Step into the garden and receive your fortune...
+        </p>
+        <TarotCard {...PREVIEW_CARD} />
       </div>
     </main>
   )
