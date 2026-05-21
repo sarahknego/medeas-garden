@@ -1,6 +1,6 @@
 # Medeas-Garden
 
-Coming-soon landing page for Medea’s Garden, built with React, TypeScript, and Vite.
+Medea’s Garden, a tarot-reading simulation website, built with React, TypeScript, and Vite.
 
 ---
 
